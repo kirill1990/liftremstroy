@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Журнал
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .full-width {
+        width: 100%;
+    }
+</style>
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--9-col">
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Дата</th>
+                    <th class="mdl-data-table__cell--non-numeric">Адрес</th>
+                    <th class="mdl-data-table__cell--non-numeric full-width">Содержание заявки</th>
+                    <th class="mdl-data-table__cell--non-numeric">Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for incident in incidents %}
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">{{ incident.start_time|date:"d.m.y H:i" }}</td>
+                    <td>Тульская, 21</td>
+                    <td class="mdl-data-table__cell--non-numeric"><a href="{{ incident.get_absolute_url }}">{{ incident.title }}</a></td>
+                    <td class="mdl-data-table__cell--non-numeric">{{ incident.get_status_display }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp">
+
+            <div class="mdl-card__supporting-text">
+                <b>Представления</b>
+                <ul>
+                    <li><a href="#">Один</a></li>
+                    <li>Два</li>
+                    <li>Три</li>
+                    <li>Четыре</li>
+                </ul>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Новая заявка
+            </a>
+            </div>
+
+    </div>
+</div>
+{% endblock %}

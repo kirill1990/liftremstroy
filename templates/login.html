@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}Вход в систему{% endblock %}
+
+{% block content %}
+
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--top">
+        <div class="mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Войдите в систему</h2>
+            </div>
+            {% if form.errors %}
+                <p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
+                {{ form.erros }}
+            {% endif %}
+
+
+            <form action='{% url 'login' %}' method='post'>
+                {% csrf_token %}
+                <div class="mdl-grid">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="id_username" name="username">
+                        <label class="mdl-textfield__label" for="id_username">Логин...</label>
+                    </div>
+                </div>
+                <div class="mdl-grid">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="id_password" name="password">
+                        <label class="mdl-textfield__label" for="id_password">Пароль...</label>
+                    </div>
+                </div>
+                <div class="mdl-grid">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell">
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                          Войти
+                        </button>
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next|escape }}" />
+                {% endif %}
+            </form>
+        </div>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
+
+{% endblock %}

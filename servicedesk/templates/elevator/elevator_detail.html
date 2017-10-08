@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  {{ object }}
+{% endblock %}
+
+{% load name_tags %}
+
+{% block content %}
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Описание</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p><b>{% verbose_name_tag object 'address' %}:</b> {{ object.address }}</p>
+            <p><b>{% verbose_name_tag object 'street' %}:</b> {{ object.street }}</p>
+            <p><b>{% verbose_name_tag object 'house' %}:</b> {{ object.house }}</p>
+            <p><b>{% verbose_name_tag object 'entrance' %}:</b> {{ object.entrance }}</p>
+            <p><b>{% verbose_name_tag object 'floors' %}:</b> {{ object.floors }}</p>
+            <p><b>{% verbose_name_tag object 'serial_number' %}:</b> {{ object.serial_number }}</p>
+            <p><b>{% verbose_name_tag object 'make' %}:</b> {{ object.make }}</p>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Создать заявку
+            </a>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Характеристики</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p><b>{% verbose_name_tag object 'reg_number' %}:</b> {{ object.reg_number }}</p>
+            <p><b>{% verbose_name_tag object 'capacity' %}:</b> {{ object.capacity }}</p>
+            <p><b>{% verbose_name_tag object 'speed' %}:</b> {{ object.speed }}</p>
+            <p><b>{% verbose_name_tag object 'year_of_manufacture' %}:</b> {{ object.year_of_manufacture }}</p>
+            <p><b>{% verbose_name_tag object 'month_of_manufacture' %}:</b> {{ object.get_month_of_manufacture_display }}</p>
+            <p><b>{% verbose_name_tag object 'month_of_start' %}:</b> {{ object.get_month_of_start_display }}</p>
+            <p><b>{% verbose_name_tag object 'name_of_manufacture' %}:</b> {{ object.name_of_manufacture }}</p>
+            <p><b>{% verbose_name_tag object 'periodiki' %}:</b> {{ object.get_periodiki_display }}</p>
+            <p><b>{% verbose_name_tag object 'month_of_inspection' %}:</b> {{ object.get_month_of_inspection_display }}</p>
+            <p><b>{% verbose_name_tag object 'year_of_inspection' %}:</b> {{ object.year_of_inspection }}</p>
+            <p><b>{% verbose_name_tag object 'payment' %}:</b> {{ object.payment }}</p>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Характеристики</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p><b>{% verbose_name_tag object 'prorab' %}:</b> {{ object.prorab }}</p>
+            <p><b>{% verbose_name_tag object 'elmechanik' %}:</b> {{ object.elmechanik }}</p>
+            <p><b>{% verbose_name_tag object 'st_upr' %}:</b> {{ object.st_upr }}</p>
+            <p><b>{% verbose_name_tag object 'communication' %}:</b> {{ object.communication }}</p>
+            <p><b>{% verbose_name_tag object 'lifterka' %}:</b> {{ object.lifterka }}</p>
+            <p><b>{% verbose_name_tag object 'schema' %}:</b> {{ object.schema }}</p>
+            <p><b>{% verbose_name_tag object 'kanat' %}:</b> {{ object.kanat }}</p>
+            <p><b>{% verbose_name_tag object 'kvh' %}:</b> {{ object.kvh }}</p>
+            <p><b>{% verbose_name_tag object 'reductor' %}:</b> {{ object.reductor }}</p>
+            <p><b>{% verbose_name_tag object 'engine' %}:</b> {{ object.engine }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
